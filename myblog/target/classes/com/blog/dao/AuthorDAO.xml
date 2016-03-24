@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.blog.dao.AuthorDAO">  
+   <!-- 映射实体吧，可以在下面查询中使用 -->  
+    <resultMap type="com.blog.entity.Author" id="AuthorMap">  
+        <id property="authorId" column="authorId"/>  
+        <result property="authorName" column="authorName"/>  
+        <result property="authorPassword" column="authorPassword"/> 
+    </resultMap>  
+      
+    <!-- 查询author，根据id，当只有一个参数的时候 -->  
+    <select id="getAuthor" parameterType="String"  resultType="com.blog.entity.Author">  
+        <![CDATA[ 
+            SELECT * from author
+                WHERE authorId = #{authorId}  
+        ]]>   
+    </select>  
+      
+      
+</mapper>  

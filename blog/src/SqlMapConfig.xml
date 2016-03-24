@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
+<configuration> 
+<typeAliases>    
+<!-- - - - - - - 实体配置- - - - - - - - - -->  
+	<typeAlias alias="Doc" type="com.blog.entity.Doc"/>  
+	<typeAlias alias="Reply" type="com.blog.entity.Reply"/> 
+	<typeAlias alias="Author" type="com.blog.entity.Author"/> 
+</typeAliases>  
+<!-- - - - - - - 数据库环境配置,environments and environment要一致- - - - - - - - - -->  
+<environments default="development">     
+	<environment id="development">         
+		<transactionManager type="JDBC"/>      
+		<dataSource type="POOLED">             
+			<property name="driver" value="com.mysql.jdbc.Driver"/>              
+			<property name="url" value="jdbc:mysql://localhost:3306/blog"/>                
+			<property name="username" value="root" />  
+            <property name="password" value="root" />           
+		</dataSource>       
+	</environment>  
+</environments>   
+<!-- - - - - - - -映射文件路径- - - - - - -->   
+<mappers>       
+	<mapper resource="com/blog/dao/AuthorDAO.xml"/>  
+	<mapper resource="com/blog/dao/ReplyDAO.xml"/> 
+	<mapper resource="com/blog/dao/DocDAO.xml"/>  
+</mappers>
+</configuration>
